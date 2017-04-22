@@ -58,8 +58,57 @@ public void adduseToRealm_Sync(View view){
   myRealm.beginTransaction();
   SocialAccount sa = myRealm.createObject(SocialAccount.class);
   sa.setName();
-  User user = myrealm.createObject(User.class);
+  User user = myrealm.createObject(User.class, id);
   user.setSocialAccount(sa);
   myRealm.commitTransaction();
 }
+```
+
+#### 5:05
+```
+catch{
+  myRealm.cancelTransaction();
+}
+```
+
+#### 06:45
+set all var to final,
+```
+myRealm.executeTransaction(new Realm.Transaction(){
+  @Override
+  public void execute(Realm realm){
+    
+  }
+}
+  }
+})
+```
+
+### 5 Inserting Data to Realm Asychronously in the Background Thread
+```
+executeTransactionAsync
+```
+#### 05:23
+```
+task = myRealm...
+if(realmAsyncTask!=null && !realmSayncTask.isCancelled()){
+  realmAsyncTask.cancel();
+}
+```
+
+
+### 6 Writing Simple Query to Fetch Records from Realm
+```
+RealmResults<User> userList = myRealm.where(User.class).findAll();
+```
+
+
+
+
+
+
+
+
+
+if
 ```
