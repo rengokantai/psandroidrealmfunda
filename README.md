@@ -102,13 +102,17 @@ if(realmAsyncTask!=null && !realmSayncTask.isCancelled()){
 RealmResults<User> userList = myRealm.where(User.class).findAll();
 ```
 
+### 7 Using Realm Browser App to Check Realm Database Content
+find realm file: Tools->Android->Android device monitor->file explorer->data->data->proj->files  
 
+### 8 Understanding @RealmClass Annotation
+#### 02:00
+```
+sa.isvalid();
+RealmObject.isValid(user);
+```
 
-
-
-
-
-
-
-if
+```
+@RealmClass
+public class User implements RealmModel
 ```
