@@ -26,3 +26,25 @@ protected void onCreate(Bundle savedInstanceState){
   myRealm = Realm.getDefaultInstance();
 }
 ```
+
+
+### 3 Defining Model Classes and Exploring Annotations
+java/me.yidi/model/User.java
+```
+import io.realm.RealmObject;
+public class User extends RealmObject{
+  @PrimaryKey
+  private String id;
+  private String name;
+  private int age;
+  private SocialAccount sa;
+  
+  
+  @Ignore
+  private String tempData; //wont be saved
+}
+```
+
+#### 04:50
+@PrimaryKey:
+- Only one peomary key allowed in a model
