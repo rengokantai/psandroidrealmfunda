@@ -48,3 +48,18 @@ public class User extends RealmObject{
 #### 04:50
 @PrimaryKey:
 - Only one peomary key allowed in a model
+
+### 4 Performing Insert Operation Synchronously in the Main Thread
+```
+public void adduseToRealm_Sync(View view){
+  String name = e.getText().toString();
+  int age = Integer.valueOf(a.getText().toString());
+  ...
+  myRealm.beginTransaction();
+  SocialAccount sa = myRealm.createObject(SocialAccount.class);
+  sa.setName();
+  User user = myrealm.createObject(User.class);
+  user.setSocialAccount(sa);
+  myRealm.commitTransaction();
+}
+```
