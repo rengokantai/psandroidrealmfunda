@@ -120,6 +120,12 @@ public class User implements RealmModel
 
 ## 5. Performing Query, Update, and Delete Operation
 ### 2 Writing Query using Fluid interface
+```
+RealmQuery<User> realmQuery = myRealm.where(User.class);
+RealmResults<User> userList = realmQuery.findAll();
+realmQuery.greaterThen("age",10);
+realmQuery.contains("name","john");
+```
 ### 3 Using Predicate to Filter Search Results
 ### 4 Performing Update and Delete Operations on Realm Records
 
