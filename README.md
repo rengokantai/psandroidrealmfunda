@@ -116,3 +116,11 @@ RealmObject.isValid(user);
 @RealmClass
 public class User implements RealmModel
 ```
+
+
+## 5. Performing Query, Update, and Delete Operation
+### 2 Writing Query using Fluid interface
+### 3 Using Predicate to Filter Search Results
+### 4 Performing Update and Delete Operations on Realm Records
+
+## 6. Creating an App Using Realm
