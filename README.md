@@ -130,3 +130,43 @@ realmQuery.contains("name","john");
 ### 4 Performing Update and Delete Operations on Realm Records
 
 ## 6. Creating an App Using Realm
+
+
+## 7. Exploring Miscellaneous Realm Concepts
+### 7 Upgrading Realm Schema and Applying Migration
+```
+import io.realm.DynamicRealm;
+import io.realm.RealmMigration;
+import io.realm.RealmSchema;
+
+public class MyMig implements RealmMigraion{
+   @Override
+   public void migrate(DynamicRealm realm, long oldVersion, long newVersion){
+    RealmSchema schema = realm.getSchema();
+    if(oldVersion ==0){
+      RealmObjectSchema userSchema = schema.get("User");
+      userSchema.addField("hobby",String.class,FieldAttribute.REQUIRED);
+      oldVersion++;
+    }
+   }
+}
+```
+
+#### 04:33
+MyApplication.java
+```
+public class MyApplication extends Application{
+  @Override
+  public void onCreate(){
+    Realm.init(this);
+    RealmConfiguration configuration = new RealmConfiguration.Builder()
+    .name(".realm")
+    .modules(new MyCustomModule())
+    .schemaVersion(0)
+    .migration(new MyMigration())
+    .build();
+    
+    Realm.setDefaultConfiguraion(configuration);
+  }
+}
+```
